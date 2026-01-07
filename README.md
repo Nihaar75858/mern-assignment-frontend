@@ -59,6 +59,8 @@ Please do **not** modify the API code.
 3. Ensure the UI state stays consistent with the API responses.
 4. Identify and explain any **design or state-related issues** you notice.
 
+**Note:** Please ensure your code is well-documented with clear comments explaining your approach and any complex logic.
+
 ---
 
 ## Important note
@@ -72,7 +74,7 @@ If you do not immediately notice any issues, try adding a way to
 - Minimal changes are preferred over large refactors.
 - There is no single correct solution.
 - Please explain *why* you made the changes you did.
-- You may use AI tools, but you should understand and be able to justify the result.
+- You may update this README if required to document your changes.
 
 ---
 
