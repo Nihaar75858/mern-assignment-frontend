@@ -1,36 +1,85 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Frontend Assignment – State Management & Design Exercise
 
-## Getting Started
+This repository contains a small, intentionally simplified Next.js + Redux example.
 
-First, run the development server:
+The purpose of this exercise is to understand how you reason about state changes, data flow, and maintainability when working with an existing system.
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+---
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Duration
+**45–60 minutes max** 
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+---
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## What’s provided
+- A minimal Next.js app using the App Router
+- A Redux slice managing subscriptions
+- A mock backend API implemented using Next.js route handlers
 
-## Learn More
+---
 
-To learn more about Next.js, take a look at the following resources:
+## API details (important)
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+The backend API is already implemented and should be treated as **fixed**.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+### API code location
+/app/api/subscriptions/route.ts
 
-## Deploy on Vercel
+### API URL (when running locally)
+/api/subscriptions
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+### API behavior
+- **GET /api/subscriptions**  
+  Returns the current list of subscriptions
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+- **POST /api/subscriptions**  
+  Adds a new **active** subscription
+
+- **PATCH /api/subscriptions**  
+  Cancels one active subscription (if present)
+
+### Data storage
+The data is stored **in memory on the server** (module-level variable).
+
+This means:
+- Data resets when the dev server restarts
+- It is not persisted in a database
+- This is intentional for the purpose of the exercise
+
+Please do **not** modify the API code.
+
+---
+
+## Your tasks (mandatory)
+
+1. Review the existing frontend and state management logic.
+2. Add UI controls to:
+   - add an active subscription
+   - cancel a subscription
+3. Ensure the UI state stays consistent with the API responses.
+4. Identify and explain any **design or state-related issues** you notice.
+
+---
+
+## Important note
+
+If you do not immediately notice any issues, try adding a way to  
+**cancel a specific subscription from the list**.
+
+---
+
+## Guidelines
+- Minimal changes are preferred over large refactors.
+- There is no single correct solution.
+- Please explain *why* you made the changes you did.
+- You may use AI tools, but you should understand and be able to justify the result.
+
+---
+
+## Submission
+- Fork this repository and share the link on email.
+
+---
+
+## Optional
+If you had more time, briefly mention what you would improve next and why.
