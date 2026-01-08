@@ -1,5 +1,4 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
-import { json } from "stream/consumers";
 
 export const fetchSubscriptions = createAsyncThunk(
   "subscriptions/fetch",
@@ -12,14 +11,22 @@ export const fetchSubscriptions = createAsyncThunk(
 // Implemented addSubscription for adding subscription
 export const addSubscription = createAsyncThunk(
   "subscriptions/add",
-  async (newSub: any) => {
+  async () => {
     const res = await fetch('/api/subscriptions', {
       method: 'POST',
-      headers: {
-        'Content-type': 'application/json'
-      },
-      body: JSON.stringify(newSub)
     });
+
+    return res.json();
+  }
+)
+
+// Implemented cancelSubscription for canceling Subcription
+export const cancelSubscription = createAsyncThunk(
+  "subscriptions/patch",
+  async () => {
+    const res = await fetch('/api/subscriptions', {
+      method: 'PATCH',
+    })
 
     return res.json();
   }
