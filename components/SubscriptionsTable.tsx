@@ -19,35 +19,35 @@ export const SubscriptionsTable = () => {
     dispatch(fetchSubscriptions());
   }, [dispatch]);
 
-  // function to send data over to db
+  // function to add new subscription
   const createNewSub = () => {
     dispatch(addSubscription());
-    alert("Subscription added successfully");
   };
 
-  // function to send
+  // function to update subscription
   const cancelSub = () => {
     dispatch(cancelSubscription());
-    alert("Subscription cancelled successfully");
   };
 
   if (loading) return <p>Loading...</p>;
 
   return (
-    <>
-      <h3>Active subscriptions: {activeCount}</h3>
-      <ul>
+    <section className="subscriptions">
+      <section className="subscriptions-header">
+        <h3>Active subscriptions: {activeCount}</h3>
+        <button className="btn primary" onClick={createNewSub}>Add Subscription</button>
+      </section>
+      <ul className="subscription-list">
         {/* Added ? for rendering protection */}
         {data?.map((s: any) => (
-          <li key={s.id}>
+          <li key={s.id} className="subscription-item">
             {s.status}
             {s.status == "active" && (
-              <button onClick={cancelSub}> Update Subscription </button>
+              <button className="btn danger ghost" onClick={cancelSub}> Cancel </button>
             )}
           </li>
         ))}
       </ul>
-      <button onClick={createNewSub}>Add Subscription</button>
-    </>
+    </section>
   );
 };

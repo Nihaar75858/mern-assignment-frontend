@@ -1,7 +1,84 @@
-button {
-    background-color: black;
-    color: aliceblue;
-    border: none;
-    border-radius: 5px;
-    padding: 10px;
+/* Layout */
+.subscriptions {
+  max-width: 370px;
+  margin-top: 16px;
+}
+
+.subscriptions-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 12px;
+}
+
+/* List */
+.subscription-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.subscription-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px 14px;
+  border: 1px solid #e5e5e5;
+  border-radius: 8px;
+  margin-bottom: 8px;
+  background: #fff;
+}
+
+/* Status badge */
+.status {
+  font-size: 13px;
+  padding: 4px 10px;
+  border-radius: 999px;
+  text-transform: capitalize;
+}
+
+.status.active {
+  background: #e8f7ee;
+  color: #137333;
+}
+
+.status.cancelled {
+  background: #f1f1f1;
+  color: #555;
+}
+
+/* Buttons */
+.btn {
+  font-size: 14px;
+  padding: 8px 14px;
+  border-radius: 6px;
+  cursor: pointer;
+  border: none;
+}
+
+.btn.primary {
+  background: #000;
+  color: #fff;
+}
+
+.btn.primary:hover {
+  background: #222;
+}
+
+.btn.danger {
+  color: #d93025;
+}
+
+.btn.ghost {
+  background: transparent;
+}
+
+.btn.danger:hover {
+  text-decoration: underline;
+}
+
+/* Text */
+.muted {
+  color: #666;
+  font-size: 14px;
 }

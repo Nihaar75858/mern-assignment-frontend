@@ -85,3 +85,10 @@ If you do not immediately notice any issues, try adding a way to
 
 ## Optional
 If you had more time, briefly mention what you would improve next and why.
+
+---
+
+## Changes Made and Why
+
+- Had First Created New Add and Update Subscription Components, then removed them:
+  Reason: For better UI rearrangement and workflow
