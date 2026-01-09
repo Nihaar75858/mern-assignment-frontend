@@ -3,6 +3,7 @@
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import type { AppDispatch } from "../store";
+import subscriptionsSlice from '../store/subscriptionsSlice';
 import {
   addSubscription,
   cancelSubscription,
@@ -25,8 +26,8 @@ export const SubscriptionsTable = () => {
   };
 
   // function to update subscription
-  const cancelSub = () => {
-    dispatch(cancelSubscription());
+  const cancelSub = (subscriptionsId: String) => {
+    dispatch(cancelSubscription(subscriptionsId));
   };
 
   if (loading) return <p>Loading...</p>;
@@ -35,7 +36,10 @@ export const SubscriptionsTable = () => {
     <section className="subscriptions">
       <section className="subscriptions-header">
         <h3>Active subscriptions: {activeCount}</h3>
-        <button className="btn primary" onClick={createNewSub}>Add Subscription</button>
+        {/* Placed Add New Subscription over here */}
+        <button className="btn primary" onClick={createNewSub}>
+          Add Subscription
+        </button>
       </section>
       <ul className="subscription-list">
         {/* Added ? for rendering protection */}
@@ -43,11 +47,18 @@ export const SubscriptionsTable = () => {
           <li key={s.id} className="subscription-item">
             {s.status}
             {s.status == "active" && (
-              <button className="btn danger ghost" onClick={cancelSub}> Cancel </button>
+              // Added cancelSub everytime we get an "active" subscription
+              <button className="btn danger ghost" onClick={() => cancelSub(s.id)}>
+                {" "}
+                Cancel{" "}
+              </button>
             )}
           </li>
         ))}
       </ul>
+
+        {/* Added validation for list in case no data is found. */}
+      {data.length === 0 && <p className="muted">No subscriptions found.</p>}
     </section>
   );
 };

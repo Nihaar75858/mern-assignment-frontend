@@ -90,5 +90,8 @@ If you had more time, briefly mention what you would improve next and why.
 
 ## Changes Made and Why
 
-- Had First Created New Add and Update Subscription Components, then removed them:
+- Had First Created New Add and Update Subscription Components, then removed them.
   Reason: For better UI rearrangement and workflow
+
+- Added subscriptionId to cancelSub even though cancelSubscription does not use it.
+  Reason: For future reference, when there will be multiple subs, it is necessary to know which one will be deleted.

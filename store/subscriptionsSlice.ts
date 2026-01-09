@@ -23,7 +23,7 @@ export const addSubscription = createAsyncThunk(
 // Implemented cancelSubscription for canceling Subcription
 export const cancelSubscription = createAsyncThunk(
   "subscriptions/patch",
-  async () => {
+  async (subscriptionsId: String) => {
     const res = await fetch("/api/subscriptions", {
       method: "PATCH",
     });
